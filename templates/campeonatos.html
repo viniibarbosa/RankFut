@@ -1,0 +1,109 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeonatos</title>
+    <link rel="stylesheet" href="{%static 'reset.css'%}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <img class="logo" src="{% static 'logo.png' %}" alt="aa">
+    </header>
+    <section>
+        <table>
+            <thead>
+                <td>    <h4>CLASSIFICAÇÃO</h4>
+                <td>    <h4>TIME</h4>
+                <td>    <h4>P</h4>
+                <td>    <h4>J</h4>
+                <td>    <h4>V</h4>
+                <td>    <h4>E</h4>
+                <td>    <h4>D</h4>
+                <td>    <h4>GM</h4>
+                <td>    <h4>GS</h4>
+                <td>    <h4>SG</h4>
+            </thead>
+    
+            <tbody>
+                {% for time in tabela %}
+                <tr>
+                    <td>    <h4>{{ time.position }}º</h4>
+                    <td class="negrito"> 
+                        <div class="classificacao">
+                            <img src="{{time.team.crest}}" alt="" class="time"><h3>{{ time.team.shortName }}</h3>
+                        </div>
+                    <td>    <h4>{{ time.points }}</h4>
+                    <td class="negrito">    <h4>{{ time.playedGames }}</h4>
+                    <td><h4>{{time.won}}</h4>
+                    <td class="negrito">    <h4>{{time.draw}}</h4>
+                    <td><h4>{{time.lost}}</h4>
+                    <td class="negrito">    <h4>{{time.goalsFor}}</h4>
+                    <td><h4>{{time.goalsAgainst}}</h4>
+                    <td class="negrito">    <h4>{{time.goalDifference}}</h4>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <aside>
+            <div class="partidas-titulo">
+                <h3>PARTIDAS</h3>
+            </div>
+                {%for i in partidas%}
+                <h2 class="horario-partida">{{ i.utcDate }}</h2>
+                <div class="partidas">
+                    {{i.homeTeam.tla}}
+                    <img src="{{i.homeTeam.crest}}" class="time-partidas" alt="">
+                    <h3 class="numeros">
+                        {%if i.score.fullTime.home != null %}
+                            {{i.score.fullTime.home}}
+                        {%endif%}
+                    </h3> 
+                    
+                    <h2 class="x">X</h2>
+                    <h3 class="numeros">
+                        {%if i.score.fullTime.away != null %}
+                            {{i.score.fullTime.away }}
+                        {%endif%}
+                    </h3>
+                    
+                    <img src="{{i.awayTeam.crest}}" class="time-partidas" alt="">{{i.awayTeam.tla}}
+                    
+                </div>
+                {%endfor%}
+           
+        </aside>
+    </section>
+
+    
+    <div class="container_artilheiros">
+        <h3 class="titulo-artilharia">ARTILHARIA</h3>
+        
+            {% for i in artilheiros%}
+            <div class="artilheiros">
+                <div class="classificacao">
+                    <img src="{{i.team.crest}}" class="time-partidas" alt="">
+                    <div class="jogador">
+                        <h3>{{i.player.name}}</h3>
+                        <h3 class="horario-partida">{{i.playedMatches}} JOGOS</h3>
+                    </div>
+                    
+                </div>
+                <h3 class="numeros">{{i.goals}}</h3>
+            </div>
+            {%endfor%}
+    </div>
+    
+    <footer>
+        <h3>Desenvolvido por Vinicius Barbosa</h3>
+    </footer>
+    
+    
+    
+
+</body>
+</html>

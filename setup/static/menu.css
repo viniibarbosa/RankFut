@@ -1,0 +1,18 @@
+body{
+    background-color: #dedede;
+}
+img{
+    width: 30rem;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    color: black;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+}

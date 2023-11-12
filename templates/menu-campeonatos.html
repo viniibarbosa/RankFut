@@ -1,0 +1,23 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'reset.css'%}">
+    <link rel="stylesheet" href="{% static 'menu.css'%}">
+</head>
+<body>
+    <section>
+        <img src="{% static 'logo.png' %}" alt="">
+        <a href="{% url 'index' %}?campeonato=2013">Brasileirão</a>
+        <a href="{% url 'index' %}?campeonato=2002">Bundesliga</a>
+        <a href="{% url 'index' %}?campeonato=2019">Calcio A</a>
+        <a href="{% url 'index' %}?campeonato=2014">La Liga</a>
+        <a href="{% url 'index' %}?campeonato=2021">Premier League</a>
+
+
+    </section>
+</body>
+</html>
