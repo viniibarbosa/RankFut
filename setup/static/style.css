@@ -3,9 +3,9 @@ body{
 }
 section{
     display: flex;
-    padding: 0px;
     align-items: flex-start;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .time{
@@ -60,7 +60,7 @@ h3{
     height: 2rem;
 }
 aside{
-    width: 30%;
+    width: 400px;
     
 }
 .partidas{
