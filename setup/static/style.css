@@ -1,5 +1,5 @@
 body{
-    background-color: #dedede;
+    background-color: #ebebeb;
 }
 section{
     display: flex;
@@ -33,7 +33,7 @@ thead{
     display: flex;
 }
 .negrito{
-    background-color: #F8F8F8;
+    background-color: #f7f6f6;
     height: 30px;
 
 }
@@ -58,6 +58,7 @@ h3{
 .time-partidas{
     width: 2rem;
     height: 2rem;
+    margin: 0px 10px;
 }
 aside{
     width: 400px;
@@ -103,6 +104,7 @@ aside{
 }
 .jogador{
     margin-left: 30px;
+    margin: 10px 0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

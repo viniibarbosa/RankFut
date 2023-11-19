@@ -26,10 +26,7 @@ def index(request):
     partidas = {}
     artilherios = {}
     
-    rodadas = 10
     
-    if(int(id_campeonato) == 2002):
-        rodadas = 9
         
     
     
@@ -42,6 +39,8 @@ def index(request):
         partidas = partidas['matches']
         artilherios = artilherios['scorers']
         fuso_horario_brasileiro = pytz.timezone('America/Sao_Paulo')
+        
+        rodadas = int(len(dados_api['standings'][0]['table'])/2)
 
         for i in range(0,rodadas):
             data = datetime.fromisoformat(partidas[i]['utcDate']).astimezone(fuso_horario_brasileiro)
